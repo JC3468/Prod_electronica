@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Producción Electrónica - Proyecto PCB</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: #004080;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            background: #0066cc;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+        }
+        h2 {
+            color: #004080;
+        }
+        h1 {
+        font-family: "Cooper Black", serif; /* cambia la tipografía solo a títulos h1 */
+        font-size: 50px; 
+        }
+        h2 {
+        font-family: "Berlin Sans FB", serif; /* cambia la tipografía solo a títulos h1 */
+        }
+        h4 {
+        font-family: "Courier New", serif; /* cambia la tipografía solo a títulos h1 */
+        color: #004080;
+        }
+        img {
+            max-width: 250px;
+            display: block;
+            margin: 10px auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+        video {
+            max-width: 200px;
+            display: block;
+            margin: 10px auto;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+        }
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #004080;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Producción Electrónica</h1>
+        <p>Proceso de diseño y fabricación de una PCB</p>
+    </header>
+
+    <nav>
+        <a href="#kicad">Diseño en KiCad</a>
+        <a href="#mods">Mods</a>
+        <a href="#monofab">Fabricación en Monofab</a>
+        <a href="#soldado">Proceso de Soldado</a>
+        <a href="#equipo">Equipo</a>
+    </nav>
+
+    <section id="kicad">
+        <h2>1. Diseño en KiCad</h2>
+        <p>
+            Primero debemos de descargar el software <b>KiCad</b> en la siguiente página.
+        </p>
+        <img src="imagenes/kiCad/descargar_Kicad.png" alt="Página de descarga">
+        <p>
+            Después de haber instalado el programa deberás de instalar todas las librerías pertinentes que se encuentran en el teams de la clase.
+        </p>
+        <img src="imagenes/kiCad/librerias.png" alt="Empezar a instalar las librerias">
+        <p>
+            Para iniciar el proyecto, se utilizó el software <b>KiCad</b> para el diseño del esquema eléctrico y el ruteo de la placa PCB.
+            Se definieron los componentes electrónicos, se crearon las conexiones y se generó el diseño de las pistas.
+        </p>
+        <ul>
+            <li>Creación del esquema eléctrico, esto se hace en new project y de ahí seleccionas el esquemático al crear el esquemático seleccionas todos los componentes que usarás</li>
+           <img src="imagenes/kiCad/newproject.png" alt="Página de descarga">
+            <img src="imagenes/kiCad/esquematico.png" alt="Página de descarga">
+            <p>
+            Antes de empezar a cablear es importante ir a la configuración de la placa.
+        </p>
+        <img src="imagenes/kiCad/editor_placas.jpg" alt="configuración de la placa">
+        <p>
+            Se va a abrir la siguiente pestaña y nos vamos a tamaños predefinidos y establecer el ancho de mm.     </p>
+        <p>
+            <img src="imagenes/kiCad/configuracion_placa.jpg" alt="configuración de la placa">
+            En la misma pestaña hay que ir a reglas de diseño y establecer los siguientes datos.
+        </p>
+        <img src="imagenes/kiCad/ancho_pista.jpg" alt="configuración de la placa">
+            <p>y de ahí empiezas a conectar todo, se pueden poner etiquetas, para tener un mayor orden y no tener que cablear todo, un ejemplo de esto es el GND y a la corriente</p>
+            <p>
+            Para enrutar deberás seleccionar el siguiente botón y verificar que el ancho sea de 0.4 mm.
+        </p>
+          <img src="imagenes/kiCad/capas.jpg" alt="enrutar">
+           <p>
+            Para las etiquetas, los símbolos y el texto se seleccionan los sigueintes botones.
+        </p>
+        <img src="imagenes/kiCad/simbolos.jpg" alt="enrutar">
+        <img src="imagenes/kiCad/texto.jpg" alt="enrutar">
+        <img src="imagenes/kiCad/etiquetas.jpg" alt="enrutar">
+         <p>
+            Puedes visualizar las capas que estas utilizando en esta pestaña, en este caso se utliza la de cobre para la pista, la de edge cut para el contorno y la de user 1 para las perforaciones.
+        </p>
+        <img src="imagenes/kiCad/capas_completas.jpg" alt="enrutar">
+            <p>
+            Además de esto hay que asegurarnos de agarrar el componente del tamaño correcto, porque si no la placa puede quedar mal.
+        </p>
+        <p>
+            Es importante recalcar que no es necesario cablear todo directamente, se pueden usar etiquetas para evitar esto.
+        </p>
+        <img src="imagenes/kiCad/circuito.jc.jpg" alt="Diseño esquemático en KiCad">
+            <li>Diseño del PCB (editor de placas)</li>
+        <p>
+            Al terminar de hacer el esquemático, deberás pasar este al editor de placas y comenzar a cablear todo.
+        </p>
+         <img src="imagenes/kiCad/pista.jc.jpg" alt="Diseño de PCB en KiCad">
+        <p>
+            Ya que tengas todo lo escencial cableado deberás presionar el botón para generar el análisis DCR y así comprobar que tu placa no tenga errores (Hay algunos que se pueden ignorar).
+        </p>
+         <img src="imagenes/kiCad/boton.png" alt="Botón DCR">
+            <li>Exportación de archivos Gerber</li>
+            <p>
+            Una vez terminado deberás de exportar los archivos como gerber en donde dice salidas de fabricación y luego deberás seleccionar las capas que utilizaste y vas a cortar y en donde dice plot format deberás de ponerle SVG
+        </p>
+         <img src="imagenes/kiCad/exportar.png" alt="Exportar gerbers">
+        <p>
+            Ya que le diste SVG deberás seleccionar la opción donde dice "fit page to board", guardar y trazar.
+        </p>
+         <img src="imagenes/kiCad/SVG.png" alt="SVG">
+        </ul>
+    </section>
+<section id="mods">
+        <h2>1. Uso del software Mods</h2>
+        <p>
+            Una vez lista tu placa en <b>KiCad</b> deberás exportar esta como archivos gerber en fromato svg y subirlo a la página de mods.
+            Donde le darás todos los valor necesarios de velocidad, tamaño de herramienta, punto de origen, etc. para así poderlos subir a la monoFab
+        </p>
+        <ul>
+            <li>Al ingresar a mods deberás dar click en programas y seleccionar el siguiente</li>
+            <img src="imagenes/kiCad/Captura de pantalla 2025-09-17 225607.png">
+            <li>De ahí se abre la siguiente pantalla, donde deberás subir los archivos que descargaste previamente de KiCad, uno por uno, para darle los valores necesarios</li>
+             <img src="imagenes/kiCad/Captura de pantalla 2025-09-17 230506.png">
+            <p>
+           Los archivos se suben en esta parte.
+        </p>
+         <img src="imagenes/MonoFab/subir_imagen.jpg">
+         <img src="imagenes/kiCad/Captura de pantalla 2025-09-17 230506.png">
+            <p>
+           Se debe seleccionar el tamaño del mill ya sea 32 o 64 dependiendo de lo que hayas subido en la siguiente pestaña.
+        </p>
+        <img src="imagenes/MonoFab/mill_outline.jpg">
+         <li>Mill 32</li>
+            <p>
+           Para el  el mill 32 es para los edge cuts y perforaciones (cambia la velocidad). La velocidad deberá de ser de 1 m/s (edge cuts) y las perforaciones 0.4 m/s, el origen deberá de estar 0,0,0.
+        </p>
+         <p>
+           El offset  se cambiará de acuerdo al archivo que se haya elegido este deberá ser en la mayoría de casos 1 pero se puede llegar a colocar hasta 4.
+        </p>
+        <img src="imagenes/MonoFab/offset.jpg">
+        <p>
+           El origen se estable en 0,0,0 y la velocidad será 0.4 o 4 mm/s dependiendo del mill. Debrá estar activado el "edit delete" para que se guarde el archivo
+        </p>
+        <img src="imagenes/MonoFab/velocidades.jpg">
+        <li>Mill 64</li>
+        <p>
+           Para el cortador en v deberás seleccionar el mill 64 es para pistas y grabados. Es importante que para las pistas piques el botón de invertir, el offset es de 1. La velocidad será de 4 m/s y la función de edit delete deberá de estar encendida, para que se guarde.
+        </p>
+         <p>
+           La imagen de la pista invertida deberá verse así.
+        </p>
+         <img src="imagenes/MonoFab/invertir.jpg">
+         <p>
+           No olvides picarle en view para poder visualizar como la MonoFab hará los cortes.
+        </p>
+        <img src="imagenes/MonoFab/visualizar.jpg">
+         <p>
+        La herramienta que tenemos tiene un diámetro de 1 mm, por lo que de preferencia el diámetro de las perforaciones debe ser el mismo 
+        y en mods se debe configurar la herramienta de la misma manera. (Idealmente se usaría una herramienta de 0.8)
+        </p>
+        </ul>
+        
+        
+    </section>
+
+    <section id="monofab">
+        <h2>2. Fabricación en Monofab</h2>
+        <p>
+            Posteriormente, los archivos que nos descargo mods se envían a la <b>Roland Monofab</b>, una fresadora CNC utilizada para fabricar
+            la placa en cobre. Este proceso consiste en la eliminación del material sobrante para dejar únicamente las pistas del circuito.
+        </p>
+        <ul>
+            <li>Preparación del material (placa de cobre)</li>
+             <p>
+            Debes pegar la placa fenólica a la cama de sacrificio con cinta doble cara y asegurar que este bien pegada, ya que sino puede fallar el corte.
+        </p>
+            <li>Configuración de la máquina Monofab</li>
+             <p>
+            Conecta la MonoFab a tu computadora y abre el programa, de ahí pon la herramienta que corresponde y debes de cortar en el siguiente orden:
+            1. Perforaciones
+            2. pistas
+            3. Bordes
+            El origen de los ejes x/y y z se ajusta al inicio, despues deberás de ir ajustando el origen del eje z de acuerdo a cada herramienta y entre cada proceso debes aspirar, para checar como va y vigilar que no se despegue.
+        </p>
+         <p>
+        Todo el proceso de las coordenadas y subir los archivos se hace en esta pestaña, para poder ir bajando las brocas deberás hacerlo poco a poco desde el continue hasta llegar al x1s
+        </p>
+        <img src="imagenes/MonoFab/coordenadas.jpg">
+        </ul>
+        <video src="imagenes/MonoFab/video_corte.mp4" autoplay muted loop width="200"></video>
+        <img src="imagenes/MonoFab/resultado1.jpg">
+         <img src="imagenes/MonoFab/placas.jpg">
+         <img src="imagenes/MonoFab/placas2.jpg">
+    </section>
+
+    <section id="soldado">
+        <h2>3. Proceso de Soldado</h2>
+        <p>
+            Una vez fabricada la PCB, se procedió al montaje y soldado de los componentes electrónicos.
+            Este paso requiere precisión y el uso de cautín, estaño y, en algunos casos, flux para mejorar la unión.
+        </p>
+        <ul>
+            <li>Colocación de componentes en la PCB</li>
+            <li>Soldadura de resistencias, capacitores, ICs y conectores</li>
+            <li>Revisión visual y pruebas eléctricas</li>
+        </ul>
+        <img src="imagenes/soldado.png" alt="Soldadura de componentes en la PCB">
+    </section>
+<section id="equipo">
+        <h2 class="section-heading text-uppercase">Equipo</h2>
+
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="imagenes/equipo/JHM.jpg" alt="..." />
+                            <h4>Jesús León Hernández Martínez</h4>
+                            <p>202112@iberopuebla.mx
+                                </div> 
+                            <p>Ingeniería Mecatrónica
+                                </div> 
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="imagenes/equipo/ASL.jpg" alt="..." />
+                            <h4>Andrea Solano López</h4>
+                            <p>200759@iberopuebla.mx
+                                </div> 
+                            <p>Ingeniería Mecatrónica
+                                </div> 
+                    </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle" src="imagenes/equipo/JCV.jpg" alt="..." />
+                            <h4>José Carlos Valencia Vázquez</h4>
+                            <p> 200398@iberopuebla.mx
+                                </div> 
+                            <p>Ingeniería Mecatrónica
+                                </div> 
+                    </div>
+                    </div>
+                </div>
+                <div class="row">
+                </div>
+            </div>    
+        </section>  
+    </section>
+
+    <footer>
+        <p>Proyecto de Producción Electrónica | Prof. Javier Osorio Figeroa | Universidad Iberoamericana de Puebla</p>
+                    
+    </footer>
+</body>
+</html>
