@@ -276,18 +276,22 @@
   <h3>Requisitos previos</h3>
   <ul>
     <li>Instalación de NI Multisim (NI Multisim 14.1).</li>
-     <img src="imagenes/soldado.png" alt="Soldadura de componentes en la PCB">
+     <img src="imagenes/Multisim/version.png" alt="Version Multisim">
   </ul>
 
   <h3>Guía paso a paso (Instructivo)</h3>
   <ol>
     <li>
       <strong>Interfaz y elementos principales</strong>
+        <img src="imagenes/Multisim/interfaz.png" alt="Interfaz">
       <ul>
         <li>Barra de menús: <em>File, Edit, Place, Simulate, Tools</em> — aquí encontrarás todas las acciones principales.</li>
+        <img src="imagenes/Multisim/menus.png" alt="Barra de menús">
         <li>Paleta de componentes: lista y búsqueda de componentes por nombre o categoría (Basic, Analog, Power, Digital).</li>
+        <img src="imagenes/Multisim/paletacomponentes.png" alt="Paleta de componentes">
         <li>Hoja de esquemático (workspace): área donde colocas y conectas componentes.</li>
         <li>Barra de instrumentos: acceso rápido a osciloscopio, multímetro, generador de funciones y otros instrumentos virtuales.</li>
+       <img src="imagenes/Multisim/instrumentos.png" alt="Barra de instrumentos">
         <li>Panel de propiedades: al seleccionar un componente muestra sus parámetros (valor, tolerancia, modelo SPICE).</li>
       </ul>
     </li>
@@ -296,6 +300,7 @@
       <strong>Paso 1 — Crear y guardar el proyecto</strong>
       <ul>
         <li>File → New → Design o <kbd>Ctrl+N</kbd>. Guardar: File → Save As; elige un nombre descriptivo (ej.: <code>practica_amplificador.ms14</code>).</li>
+        <img src="imagenes/Multisim/file.png" alt="File">
         <li>Guardar frecuentemente para evitar pérdida de trabajo (autosave puede estar disponible según la versión).</li>
       </ul>
     </li>
@@ -304,7 +309,9 @@
       <strong>Paso 2 — Buscar e insertar componentes</strong>
       <ul>
         <li>Place → Component. Usa la búsqueda por texto si conoces el nombre (ej.: "resistor", "opamp" o "LM741").</li>
+        <img src="imagenes/Multisim/place.png" alt="Place">
         <li>Selecciona la librería adecuada: por ejemplo, <em>Basic</em> para resistencias y capacitores, <em>Mixed</em> para modelos SPICE de ICs.</li>
+        <img src="imagenes/Multisim/component.png" alt="Component">
         <li>Coloca el componente en la hoja haciendo clic en la posición deseada. Repite para añadir todos los componentes necesarios.</li>
         <li>Si necesitas un símbolo que no aparece, revisa librerías adicionales o importa modelos SPICE específicos.</li>
       </ul>
@@ -314,7 +321,9 @@
       <strong>Paso 3 — Editar parámetros de componentes</strong>
       <ul>
         <li>Haz doble clic en un componente para editar valor, tolerancia y propiedades avanzadas (modelos, pines, etc.).</li>
+        <img src="imagenes/Multisim/propiedades.png" alt="Propiedades">
         <li>Para resistencias y capacitores escribe valores legibles (10k, 1uF). Para fuentes, especifica amplitud, offset y forma de onda.</li>
+       <img src="imagenes/Multisim/capacitor.png" alt="Parametros capacitor">
         <li>Algunos componentes permiten seleccionar modelos SPICE (útil para resultados más realistas, p. ej. modelos de transistores).</li>
       </ul>
     </li>
@@ -323,6 +332,7 @@
       <strong>Paso 4 — Cableado y organización del esquemático</strong>
       <ul>
         <li>Place → Wire o <kbd>Ctrl+W</kbd>. Une pines de componentes arrastrando desde un pin hasta otro.</li>
+        <img src="imagenes/Multisim/wire.png" alt="Cableado">
         <li>Usa net labels (Place → Label) para nombrar nodos importantes: <code>Vin</code>, <code>Vout</code>, <code>GND</code>. Esto facilita lecturas y exportación de datos.</li>
         <li>Organiza el esquemático en bloques funcionales (fuente, etapa de entrada, etapa de salida) para mayor claridad.</li>
         <li>Si hay conexiones largas, usa puentes (Place → Terminal) o net labels para evitar wires cruzados.</li>
@@ -334,6 +344,7 @@
       <ul>
         <li>Place → Instrument: selecciona Oscilloscope, Multimeter, Function Generator, Power Supply, Logic Analyzer según la prueba.</li>
         <li>Conecta las puntas/probes del instrumento a los nodos que vas a medir (ej.: canal 1 del osciloscopio a Vout, referencia a GND).</li>
+        <img src="imagenes/Multisim/oscilo.png" alt="Osciloscopio">  
         <li>Accede a las propiedades del instrumento (doble clic) para ajustar parámetros como escala, acoplamiento (DC/AC), y cursores.</li>
       </ul>
     </li>
@@ -342,6 +353,8 @@
       <strong>Paso 6 — Configurar tipos de simulación</strong>
       <ul>
         <li>Simulate → Interactive Simulation Settings. Elige el tipo de análisis según lo que busques:</li>
+           <img src="imagenes/Multisim/simulate.png" alt="Cableado">
+          <img src="imagenes/Multisim/interactive.png" alt="Version Multisim">
         <li><em>Transient (Tiempo):</em> para formas de onda en el dominio temporal. Parámetros recomendados: Stop time (ej.: 10 ms), Maximum time step (usa una fracción del periodo de la señal).</li>
         <li><em>AC Analysis (Bode):</em> para respuesta en frecuencia. Configura rango (ej.: 10 Hz – 1 MHz) y puntos por década.</li>
         <li><em>DC Operating Point:</em> para voltajes y corrientes en estado estacionario sin señales AC/temporal.</li>
@@ -353,6 +366,7 @@
       <strong>Paso 7 — Ejecutar la simulación y usar herramientas de medida</strong>
       <ul>
         <li>Presiona <kbd>F5</kbd> o el icono Run (▶) para iniciar la simulación.</li>
+        <img src="imagenes/Multisim/run.png" alt="run">
         <li>En el osciloscopio: ajusta la escala vertical/horizontal, usa cursores para medir amplitud y periodo, y habilita múltiples canales para comparación.</li>
         <li>En análisis AC: muestra magnitud en dB y fase; genera gráficas tipo Bode para identificar frecuencia de corte, ganancia y márgenes.</li>
         <li>Utiliza el multímetro virtual para lecturas puntuales de DC (voltaje, corriente) o el analizador lógico para señales digitales.</li>
@@ -390,10 +404,7 @@
     <li>Documenta siempre la versión de Multisim; las rutas y nombres de menús pueden cambiar entre versiones.</li>
   </ul>
 
- 
-  <p>
-    <img src="imagenes/multisim_simulacion.png" alt="Ejemplo de simulación de circuito en Multisim">
-  </p>
+
 </section>
 </div>
      <section id="vinil">
@@ -456,6 +467,7 @@
     </footer>
 </body>
 </html>
+
 
 
 
