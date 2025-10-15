@@ -267,138 +267,151 @@
         <img src="imagenes/soldado.png" alt="Soldadura de componentes en la PCB">
     </section>
                 </div>
- <section id="multisim">
+<section id="multisim">
   <h2>4. Multisim</h2>
   <p>
-    Multisim es un entorno de simulación de circuitos que permite diseñar, probar y validar circuitos electrónicos antes de su montaje físico. Esta sección explica en detalle un flujo de trabajo útil para prácticas de laboratorio: desde la creación del proyecto hasta la exportación de resultados y comprobaciones previas al diseño de PCB.
-  </p>
-
-  <h3>Objetivo</h3>
-  <p>
-    Proveer un instructivo paso a paso, con recomendaciones prácticas, configuraciones típicas de simulación y formatos de captura que faciliten documentar resultados en tu informe.
+    Multisim es un entorno de simulación de circuitos que permite diseñar, probar y validar circuitos electrónicos antes de su montaje físico. A continuación se presenta un instructivo detallado, centrado en el uso de la interfaz, la colocación de componentes, las funciones clave y las configuraciones de simulación más útiles para prácticas de laboratorio.
   </p>
 
   <h3>Requisitos previos</h3>
   <ul>
-    <li>Instalación de NI Multisim (indicar versión en el informe, por ejemplo: Multisim 14.2).</li>
-    <li>Capturador de pantalla para guardar imágenes (.png).</li>
-    <li>Carpeta del proyecto con subcarpeta <code>imagenes/</code> para las capturas.</li>
+    <li>Instalación de NI Multisim (anotar la versión en tu informe).</li>
+    <li>Carpeta de proyecto con subcarpeta <code>imagenes/</code> para guardar capturas.</li>
+    <li>Capturador de pantalla (PrtSc / herramientas del sistema).</li>
   </ul>
 
-  <h3>Flujo detallado (paso a paso)</h3>
+  <h3>Guía paso a paso (Instructivo)</h3>
   <ol>
     <li>
-      <strong>Paso 1 — Crear y configurar el proyecto</strong>
+      <strong>Interfaz y elementos principales</strong>
       <ul>
-        <li>Abrir Multisim y seleccionar <em>File → New → Design</em>. Guardar inmediatamente con un nombre claro (ej.: <code>practica_filtro_RC.ms14</code>).</li>
-        <li>En las propiedades del diseño (File → Design Properties) añade autor, fecha y una breve descripción del objetivo (por ejemplo: "Simulación de filtro pasa-bajo RC para medir respuesta en frecuencia").</li>
-        <li><em>Captura sugerida:</em> ventana de nuevo diseño -> <code>imagenes/ss01_new_design.png</code>.</li>
+        <li>Barra de menús: <em>File, Edit, Place, Simulate, Tools</em> — aquí encontrarás todas las acciones principales.</li>
+        <li>Paleta de componentes: lista y búsqueda de componentes por nombre o categoría (Basic, Analog, Power, Digital).</li>
+        <li>Hoja de esquemático (workspace): área donde colocas y conectas componentes.</li>
+        <li>Barra de instrumentos: acceso rápido a osciloscopio, multímetro, generador de funciones y otros instrumentos virtuales.</li>
+        <li>Panel de propiedades: al seleccionar un componente muestra sus parámetros (valor, tolerancia, modelo SPICE).</li>
       </ul>
     </li>
 
     <li>
-      <strong>Paso 2 — Añadir y parametrizar componentes</strong>
+      <strong>Paso 1 — Crear y guardar el proyecto</strong>
       <ul>
-        <li>Ir a <em>Place → Component</em>. Buscar y colocar: fuente (DC o Function Generator), resistencias, condensadores, tierra (Ground) y, si aplica, amplificadores operacionales.</li>
-        <li>Seleccionar cada componente y hacer doble clic para editar valores (por ejemplo R = 10k, C = 10nF). Es recomendable usar notación clara (10k en vez de 10000) para el informe.</li>
-        <li>Si vas a correr un barrido en frecuencia, añade un <em>AC Voltage Source</em> como fuente de prueba y define su valor (1 V AC ideal para medir ganancia en dB).</li>
-        <li><em>Captura sugerida:</em> paleta de componentes y propiedades -> <code>imagenes/ss02_place_components.png</code>.</li>
+        <li>File → New → Design o <kbd>Ctrl+N</kbd>. Guardar: File → Save As; elige un nombre descriptivo (ej.: <code>practica_amplificador.ms14</code>).</li>
+        <li>Guardar frecuentemente para evitar pérdida de trabajo (autosave puede estar disponible según la versión).</li>
       </ul>
     </li>
 
     <li>
-      <strong>Paso 3 — Cableado y etiquetado</strong>
+      <strong>Paso 2 — Buscar e insertar componentes</strong>
       <ul>
-        <li>Selecciona <em>Place → Wire</em> (<kbd>Ctrl+W</kbd>) y une pines respetando polaridades y masa.</li>
-        <li>Usa etiquetas (Place → Label) para nombrar nodos importantes: <code>Vin</code>, <code>Vout</code>, <code>GND</code>. Esto ayuda cuando exportes tablas de nodos.</li>
-        <li>Comprueba conexiones con la herramienta <em>Net Name</em> y evita wires superpuestos que no estén conectados (confunden al lector).</li>
-        <li><em>Captura sugerida:</em> circuito cableado y etiquetado -> <code>imagenes/ss03_wiring.png</code>.</li>
+        <li>Place → Component. Usa la búsqueda por texto si conoces el nombre (ej.: "resistor", "opamp" o "LM741").</li>
+        <li>Selecciona la librería adecuada: por ejemplo, <em>Basic</em> para resistencias y capacitores, <em>Mixed</em> para modelos SPICE de ICs.</li>
+        <li>Coloca el componente en la hoja haciendo clic en la posición deseada. Repite para añadir todos los componentes necesarios.</li>
+        <li>Si necesitas un símbolo que no aparece, revisa librerías adicionales o importa modelos SPICE específicos.</li>
       </ul>
     </li>
 
     <li>
-      <strong>Paso 4 — Instrumentos virtuales y configuración de simulación</strong>
+      <strong>Paso 3 — Editar parámetros de componentes</strong>
       <ul>
-        <li>Coloca instrumentos: Oscilloscope (Place → Instrument → Oscilloscope), Multimeter, Function Generator o DC Source según el caso.</li>
-        <li><strong>Configuración típica para análisis temporal (Transient):</strong>
-          <ul>
-            <li>Simulate → Interactive Simulation Settings → Transient.</li>
-            <li>Stop time: 10 ms (ajusta según la frecuencia de la señal).</li>
-            <li>Maximum time step: frac. de período (ej. para 1 kHz, periodo = 1 ms → dt máximo = 0.001/200 ≈ 5e-6 s) para mayor precisión en formas de onda.</li>
-          </ul>
-        </li>
-        <li><strong>Configuración típica para análisis en frecuencia (AC Sweep):</strong>
-          <ul>
-            <li>Tipo: AC Sweep (Logarithmic)</li>
-            <li>Rango: 10 Hz a 1 MHz (o según el circuito)</li>
-            <li>Puntos por década: 100 (o 50 si necesitas menos resolución)</li>
-          </ul>
-        </li>
-        <li><em>Captura sugerida:</em> ventana de configuración de simulación -> <code>imagenes/ss04_sim_settings.png</code>.</li>
+        <li>Haz doble clic en un componente para editar valor, tolerancia y propiedades avanzadas (modelos, pines, etc.).</li>
+        <li>Para resistencias y capacitores escribe valores legibles (10k, 1uF). Para fuentes, especifica amplitud, offset y forma de onda.</li>
+        <li>Algunos componentes permiten seleccionar modelos SPICE (útil para resultados más realistas, p. ej. modelos de transistores).</li>
       </ul>
     </li>
 
     <li>
-      <strong>Paso 5 — Ejecutar la simulación y analizar</strong>
+      <strong>Paso 4 — Cableado y organización del esquemático</strong>
       <ul>
-        <li>Presiona <kbd>F5</kbd> o el botón <em>Run</em> (▶). Observa el osciloscopio para formas de onda o el analizador para respuestas en frecuencia.</li>
-        <li>Usa cursores del osciloscopio para medir amplitud y periodo. Anota valores relevantes para el informe (Vpp, Vrms, frecuencia).</li>
-        <li>Si la señal no se ve estable: revisa las conexiones, añade una resistencia de carga adecuada o reduce el time step.</li>
-        <li><em>Captura sugerida:</em> pantalla del osciloscopio con cursores -> <code>imagenes/ss05_scope.png</code>.</li>
+        <li>Place → Wire o <kbd>Ctrl+W</kbd>. Une pines de componentes arrastrando desde un pin hasta otro.</li>
+        <li>Usa net labels (Place → Label) para nombrar nodos importantes: <code>Vin</code>, <code>Vout</code>, <code>GND</code>. Esto facilita lecturas y exportación de datos.</li>
+        <li>Organiza el esquemático en bloques funcionales (fuente, etapa de entrada, etapa de salida) para mayor claridad.</li>
+        <li>Si hay conexiones largas, usa puentes (Place → Terminal) o net labels para evitar wires cruzados.</li>
       </ul>
     </li>
 
     <li>
-      <strong>Paso 6 — Exportación de datos y generación de imágenes</strong>
+      <strong>Paso 5 — Colocar instrumentos virtuales</strong>
       <ul>
-        <li>Para exportar una traza: en la ventana del osciloscopio selecciona la traza → Trace → Export → guarda como <code>.csv</code>. Nombra el archivo según circuito y prueba (ej.: <code>filtroRC_10k_10n_trasient.csv</code>).</li>
-        <li>Para capturas de pantalla nativas usa <em>File → Export → Bitmap</em> o el capturador del sistema y guarda en <code>imagenes/</code>. Usa nombres sugeridos: <code>ss06_export_trace.png</code>.</li>
-        <li>Incluye en tu informe una imagen con leyendas y unidades claras (ej.: Eje Y: Voltaje (V); Eje X: Tiempo (ms)).</li>
+        <li>Place → Instrument: selecciona Oscilloscope, Multimeter, Function Generator, Power Supply, Logic Analyzer según la prueba.</li>
+        <li>Conecta las puntas/probes del instrumento a los nodos que vas a medir (ej.: canal 1 del osciloscopio a Vout, referencia a GND).</li>
+        <li>Accede a las propiedades del instrumento (doble clic) para ajustar parámetros como escala, acoplamiento (DC/AC), y cursores.</li>
       </ul>
     </li>
 
     <li>
-      <strong>Paso 7 — Documentar resultados y conclusiones</strong>
+      <strong>Paso 6 — Configurar tipos de simulación</strong>
       <ul>
-        <li>Incluye en el informe: diagrama esquemático (captura), configuración de simulación (transient/AC, tiempo, dt), tablas con medidas (Vpp, frecuencia de corte), y las capturas de las formas de onda o gráficas de Bode.</li>
-        <li>Compara valores teóricos con valores simulados y discute las discrepancias (tolerancia de componentes, efecto de carga, resolución de simulación).</li>
-        <li>Adjunta los archivos .ms14 (o la extensión de tu versión) y los .csv en el repositorio del proyecto para reproducibilidad.</li>
+        <li>Simulate → Interactive Simulation Settings. Elige el tipo de análisis según lo que busques:</li>
+        <li><em>Transient (Tiempo):</em> para formas de onda en el dominio temporal. Parámetros recomendados: Stop time (ej.: 10 ms), Maximum time step (usa una fracción del periodo de la señal).</li>
+        <li><em>AC Analysis (Bode):</em> para respuesta en frecuencia. Configura rango (ej.: 10 Hz – 1 MHz) y puntos por década.</li>
+        <li><em>DC Operating Point:</em> para voltajes y corrientes en estado estacionario sin señales AC/temporal.</li>
+        <li><em>Parametric Sweep:</em> (si la versión lo soporta) permite barrer valores (por ejemplo, variando R) y generar curvas múltiples automáticamente.</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>Paso 7 — Ejecutar la simulación y usar herramientas de medida</strong>
+      <ul>
+        <li>Presiona <kbd>F5</kbd> o el icono Run (▶) para iniciar la simulación.</li>
+        <li>En el osciloscopio: ajusta la escala vertical/horizontal, usa cursores para medir amplitud y periodo, y habilita múltiples canales para comparación.</li>
+        <li>En análisis AC: muestra magnitud en dB y fase; genera gráficas tipo Bode para identificar frecuencia de corte, ganancia y márgenes.</li>
+        <li>Utiliza el multímetro virtual para lecturas puntuales de DC (voltaje, corriente) o el analizador lógico para señales digitales.</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>Paso 8 — Exportar datos e imágenes</strong>
+      <ul>
+        <li>Exportar traza: en la ventana del osciloscopio o del gráfico selecciona Trace → Export → CSV. Guarda con un nombre descriptivo (ej.: <code>filtroRC_bode.csv</code>).</li>
+        <li>Exportar imagen: File → Export → Bitmap o usa la herramienta de captura del sistema y guarda en <code>imagenes/</code>.</li>
+        <li>Incluye unidades y leyendas en las figuras para que sean legibles en el informe.</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>Paso 9 — Funciones avanzadas y utilidades útiles</strong>
+      <ul>
+        <li><strong>Parametric Sweep:</strong> automatiza variaciones de un componente y permite comparar resultados sin modificar el esquemático manualmente.</li>
+        <li><strong>Monte Carlo:</strong> (si está disponible) analiza variaciones por tolerancias de componentes; útil para ver robustez del diseño.</li>
+        <li><strong>SPICE Directives:</strong> permite incluir comandos SPICE personalizados para análisis específicos.</li>
+        <li><strong>Model Import:</strong> importar modelos SPICE de fabricantes para obtener comportamiento realista de ICs y transistores.</li>
+        <li><strong>Interactive Tuning:</strong> cambiar valores de componentes en tiempo real durante la simulación para ver efectos instantáneos.</li>
+      </ul>
+    </li>
+
+    <li>
+      <strong>Paso 10 — Comprobaciones y documentación final</strong>
+      <ul>
+        <li>Verifica polaridades, tensiones máximas y conexiones a GND antes de confiar en los resultados para el diseño físico.</li>
+        <li>Incluye en tu documentación: esquema con anotaciones, parámetros de simulación (tipo de análisis, tiempo, dt), archivos exportados (.csv) y capturas.</li>
+        <li>Guarda el diseño final y haz un respaldo del archivo del proyecto (.ms14 o similar) en el repositorio del curso.</li>
       </ul>
     </li>
   </ol>
 
-  <h3>Lista de comprobación antes de montar la PCB</h3>
+  <h3>Consejos prácticos y resolución de problemas</h3>
   <ul>
-    <li>El circuito simulado cumple con los requisitos funcionales (ganancia, frecuencia de corte, distorsión aceptable).</li>
-    <li>Se verificaron polaridades y tensiones máximas en componentes activos (ICs, condensadores electrolíticos).</li>
-    <li>Se exportaron las trazas y capturas necesarias para el informe.</li>
-    <li>Se guardó el archivo del proyecto y se documentó la versión de Multisim usada.</li>
+    <li>Si la simulación muestra resultados inesperados, revisa primero la conexión a <code>GND</code> y la referencia de las fuentes.</li>
+    <li>Para señales con mucho ruido aparente, reduce el máximo time step o añade condensadores de desacoplo en las fuentes de alimentación.</li>
+    <li>Si el osciloscopio no muestra nada, comprueba que el canal está habilitado y correctamente conectado al nodo y a tierra.</li>
+    <li>Documenta siempre la versión de Multisim; las rutas y nombres de menús pueden cambiar entre versiones.</li>
   </ul>
 
-  <h3>Resolución de problemas comunes</h3>
+  <h3>Nombres de imágenes sugeridos</h3>
   <ul>
-    <li><strong>Señal con ruido o inestable:</strong> reducir el time step, añadir condensadores de desacoplo o usar una fuente ideal con menor impedancia.</li>
-    <li><strong>Instrumento no muestra datos:</strong> comprobar que el probe esté conectado al nodo correcto y que la referencia a GND esté presente en el circuito.</li>
-    <li><strong>Simulación tarda mucho:</strong> aumentar el máximo time step o reducir puntos por década en AC Sweep; usar análisis en pequeños intervalos.</li>
-  </ul>
-
-  <h3>Formato de imágenes y nombres recomendados</h3>
-  <ul>
-    <li>Capturas en PNG, 1200×800 px para buena legibilidad en informes web.</li>
-    <li>Nombres sugeridos: <code>ss01_new_design.png</code>, <code>ss02_place_components.png</code>, <code>ss03_wiring.png</code>, <code>ss04_sim_settings.png</code>, <code>ss05_scope.png</code>, <code>ss06_export_trace.png</code>.</li>
+    <li><code>ss01_new_design.png</code> — ventana de nuevo diseño.</li>
+    <li><code>ss02_place_components.png</code> — selección y colocación de componentes.</li>
+    <li><code>ss03_wiring.png</code> — cableado y etiquetado de nodos.</li>
+    <li><code>ss04_sim_settings.png</code> — configuración de simulación.</li>
+    <li><code>ss05_scope.png</code> — captura del osciloscopio con cursores.</li>
+    <li><code>ss06_export_trace.png</code> — exportación de datos (.csv).</li>
   </ul>
 
   <p>
     <img src="imagenes/multisim_simulacion.png" alt="Ejemplo de simulación de circuito en Multisim">
   </p>
-
-  <h3>Referencias y notas</h3>
-  <ul>
-    <li>Documenta la versión de Multisim (ej.: Multisim 14.2) y, si corresponde, la licencia usada (estudiante/institucional).</li>
-    <li>Para análisis más avanzados (ruido, SPICE-level models), consulta la documentación oficial de NI Multisim y la guía de SPICE incluida en la instalación.</li>
-  </ul>
 </section>
-
 </div>
      <section id="vinil">
         <h2> 5. Vinil </h2>
@@ -460,6 +473,7 @@
     </footer>
 </body>
 </html>
+
 
 
 
