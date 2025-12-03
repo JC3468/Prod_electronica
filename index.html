@@ -557,6 +557,287 @@
     <li>Guarda los restos de vinil, pueden ser útiles para pruebas o cortes pequeños.</li>
   </ul>
 </section>
+
+    </section>
+</div>
+
+<!-- ========================================================= -->
+<!-- =====================   XTOOL  =========================== -->
+<!-- ========================================================= -->
+
+<section id="xtool">
+  <h2>1. Uso y Manejo de la xTool</h2>
+
+  <p>
+    La <strong>xTool</strong> es una cortadora y grabadora láser de alta precisión ampliamente utilizada en prototipado rápido, fabricación de maquetas, corte de acrílico, grabado en maderas y diseño de componentes personalizados para proyectos de ingeniería. 
+    Su facilidad de uso y compatibilidad con múltiples formatos la convierten en una herramienta esencial dentro del laboratorio. 
+    A continuación se describe el proceso completo para utilizarla de forma segura, profesional y con resultados consistentes.
+  </p>
+
+  <h3>Pasos a seguir</h3>
+
+  <ol>
+    <!-- 1. Preparación -->
+    <li>
+      <strong>Preparación del material y del área de trabajo</strong>
+      <ul>
+        <li>Verifica que la máquina esté conectada a la corriente y al extractor de humo.</li>
+        <li>Revisa que la superficie de la base interna esté limpia de residuos carbonizados.</li>
+        <li>Coloca el material (acrílico, MDF, cartón, etc.) sobre la rejilla metálica y fija con imanes.</li>
+        <li>Asegúrate de que la tapa cierre por completo antes de encender el láser.</li>
+        <li>Para acrílico, retira solo la capa protectora superior; dejar la inferior reduce marcas por quemado.</li>
+        <img src="imagenes/xTool/preparacion_material.jpg">
+      </ul>
+
+      <!-- Sugerencias de recursos -->
+      <ul>
+        <li><em>Sugerencia de imagen:</em> “imagenes/xTool/base_limpia.jpg” mostrando la cama de corte limpia.</li>
+        <li><em>Material recomendado:</em> acrílico 3 mm, MDF 3 mm, cartón ilustración.</li>
+        <li><em>Archivo sugerido:</em> “archivos/xtool/soporte_prototipo.dxf”.</li>
+      </ul>
+    </li>
+
+    <!-- 2. Software -->
+    <li>
+      <strong>Configuración en xTool Creative Space</strong>
+      <ul>
+        <li>Abre el software e importa el archivo (.DXF, .SVG, .PNG, .JPG o .PDF).</li>
+        <li>Acomoda el diseño dentro del área de trabajo virtual.</li>
+        <li>Selecciona el tipo de proceso: <strong>Corte</strong>, <strong>Grabado</strong> o <strong>Puntuado</strong>.</li>
+        <li>Activa el modo de vista previa con cámara para verificar la posición del material real.</li>
+        <img src="imagenes/xTool/software1.jpg">
+      </ul>
+
+      <ul>
+        <li><em>Sugerencia de imagen:</em> “imagenes/xTool/interfaz_creative_space.jpg”.</li>
+        <li><em>Archivo editable:</em> “archivos/xtool/logo_laser.svg”.</li>
+      </ul>
+    </li>
+
+    <!-- 3. Parámetros -->
+    <li>
+      <strong>Ajuste de parámetros de corte y grabado</strong>
+      <ul>
+        <li>Configura la <strong>potencia (Power)</strong> según el material: MDF 3 mm ≈ 90–100%.</li>
+        <li>Regula la <strong>velocidad (Speed)</strong> para obtener bordes limpios.</li>
+        <li>Define el número de pasadas (<strong>Passes</strong>) cuando el material requiere perforación completa.</li>
+        <li>Activa el <strong>Auto-Focus</strong> para que el láser ajuste su distancia automáticamente.</li>
+        <img src="imagenes/xTool/parametros.jpg">
+      </ul>
+
+      <ul>
+        <li><em>Sugerencia:</em> incluir imagen “imagenes/xTool/material_settings.png” mostrando los presets.</li>
+      </ul>
+    </li>
+
+    <!-- 4. Envío -->
+    <li>
+      <strong>Vista previa y envío del trabajo</strong>
+      <ul>
+        <li>Haz clic en <strong>Framing</strong> para ver el contorno exacto que ocupará el diseño.</li>
+        <li>Verifica que no existan interferencias con imanes o bordes del material.</li>
+        <li>Da clic en <strong>Start</strong> para iniciar el corte.</li>
+        <li>No abras la tapa mientras el láser está en operación.</li>
+        <img src="imagenes/xTool/framing.jpg">
+      </ul>
+    </li>
+
+    <!-- 5. Final -->
+    <li>
+      <strong>Retiro del material y limpieza</strong>
+      <ul>
+        <li>Espera unos segundos tras finalizar para permitir que el humo se disipe.</li>
+        <li>Retira cuidadosamente las piezas y separa bordes con una espátula si es necesario.</li>
+        <li>Limpia el área y apaga la máquina.</li>
+        <img src="imagenes/xTool/piezas_finalizadas.jpg">
+      </ul>
+    </li>
+  </ol>
+
+  <h3>Consejos prácticos</h3>
+  <ul>
+    <li>Evita cortar PVC o viniles que produzcan cloro al quemarse.</li>
+    <li>Para grabado más profundo, usa baja velocidad y potencia alta.</li>
+    <li>Para cortes limpios en acrílico: potencia alta + velocidad baja.</li>
+    <li>Guarda presets personalizados para proyectos futuros.</li>
+  </ul>
+</section>
+
+
+<!-- ========================================================= -->
+<!-- =====================   ALTIUM  ========================== -->
+<!-- ========================================================= -->
+
+<section id="altium">
+  <h2>2. Uso y Manejo de Altium Designer</h2>
+
+  <p>
+    <strong>Altium Designer</strong> integra todas las etapas del diseño electrónico, desde la creación del esquemático hasta la generación de archivos de manufactura. Su enfoque profesional permite desarrollar PCB altamente confiables, con simulación eléctrica, reglas avanzadas y modelos 3D.  
+    A continuación se presenta el flujo completo con detalle técnico.
+  </p>
+
+  <h3>Partes del proceso en Altium</h3>
+
+  <ol>
+    <!-- 1 Esquemáticos -->
+    <li>
+      <strong>Esquemáticos (Schematic Design)</strong>
+      <ul>
+        <li>Creación del diagrama eléctrico completo.</li>
+        <li>Organización por hojas (Top-Level, Power, IO, Sensor, etc.).</li>
+        <li>Conexión con <strong>Net Labels</strong>, buses y jerarquías.</li>
+        <li>Asignación de parámetros eléctricos (voltaje, potencia, tolerancias).</li>
+        <img src="imagenes/Altium/schematic_editor.jpg">
+      </ul>
+      <ul>
+        <li><em>Archivo sugerido:</em> “archivos/altium/esquematico_principal.PrjPcb”.</li>
+        <li><em>Sugerencia de imagen:</em> “imagenes/Altium/schematic_closeup.jpg”.</li>
+      </ul>
+    </li>
+
+    <!-- 2 Librerías -->
+    <li>
+      <strong>Librerías (Components & Footprints)</strong>
+      <ul>
+        <li>Creación de símbolos eléctricos personalizados.</li>
+        <li>Diseño de footprints con pads y distancias exactas.</li>
+        <li>Inclusión de modelos 3D STEP para visualización realista.</li>
+        <li>Vinculación entre símbolo, huella y datos del fabricante.</li>
+        <img src="imagenes/Altium/librerias.jpg">
+      </ul>
+
+      <ul>
+        <li><em>Biblioteca recomendada:</em> “archivos/altium/libreria_componentes.IntLib”.</li>
+      </ul>
+    </li>
+
+    <!-- 3 Ruteado -->
+    <li>
+      <strong>Ruteado de PCB</strong>
+      <ul>
+        <li>Definición del contorno físico de la tarjeta.</li>
+        <li>Colocación estratégica de componentes siguiendo líneas de señal, potencia y térmicas.</li>
+        <li>Ruteo manual, automático y ruteo diferencial.</li>
+        <li>Aplicación de reglas: ancho de pista, clearance, zonas de cobre.</li>
+        <img src="imagenes/Altium/ruteo.jpg">
+      </ul>
+    </li>
+
+    <!-- 4 PCB -->
+    <li>
+      <strong>Vista de PCB (Fabricación física)</strong>
+      <ul>
+        <li>Visualización 2D y 3D de la placa.</li>
+        <li>Verificación de altura y compatibilidad mecánica.</li>
+        <li>Asignación de capas: Top, Bottom, GND plane, Power plane.</li>
+        <img src="imagenes/Altium/pcb3d.jpg">
+      </ul>
+    </li>
+
+    <!-- 5 Archivos -->
+    <li>
+      <strong>Archivos de fabricación</strong>
+      <ul>
+        <li>Generación de <strong>Gerbers</strong>, <strong>Drill Files</strong>, <strong>BOM</strong> y <strong>Pick & Place</strong>.</li>
+        <li>Revisión mediante el visor integrado.</li>
+        <li>Exportación en ZIP para enviar a la empresa manufacturera.</li>
+        <img src="imagenes/Altium/gerbers.jpg">
+      </ul>
+
+      <ul>
+        <li><em>Archivo sugerido:</em> “archivos/altium/gerbers.zip”.</li>
+      </ul>
+    </li>
+
+    <!-- 6 Simulación -->
+    <li>
+      <strong>Simulación (SPICE)</strong>
+      <ul>
+        <li>Simulación de señales analógicas y digitales.</li>
+        <li>Análisis de respuesta transitoria, AC y DC.</li>
+        <li>Revisión de estabilidad y funcionamiento del diseño.</li>
+        <img src="imagenes/Altium/simulacion.jpg">
+      </ul>
+    </li>
+
+    <!-- 7 DRC -->
+    <li>
+      <strong>Verificación DRC (Design Rule Check)</strong>
+      <ul>
+        <li>Detección de errores de ruteo, distancias, cortos o pistas mal conectadas.</li>
+        <li>Corrección automática o manual.</li>
+        <li>Validación final antes de exportar.</li>
+        <img src="imagenes/Altium/drc.jpg">
+      </ul>
+    </li>
+  </ol>
+</section>
+
+
+<!-- ========================================================= -->
+<!-- =====================   PROYECTO  ======================== -->
+<!-- ========================================================= -->
+
+<section id="proyecto">
+  <h2>3. Proyecto Fabricado</h2>
+
+  <p>
+    Para el proyecto final se integraron las herramientas descritas anteriormente para fabricar un prototipo funcional. 
+    La combinación de diseño electrónico en Altium y manufactura en la xTool permitió obtener un dispositivo completamente personalizado, optimizado y estéticamente profesional.
+  </p>
+
+  <h3>Proceso completo</h3>
+  <ol>
+    <li>
+      <strong>Diseño electrónico</strong>
+      <ul>
+        <li>Se elaboró el esquemático del sistema completo.</li>
+        <li>Se seleccionaron componentes en función de requisitos eléctricos y disponibilidad.</li>
+        <li>Se verificaron tensiones, señales y compatibilidad de pines.</li>
+        <img src="imagenes/proyecto/esquematico_final.jpg">
+      </ul>
+    </li>
+
+    <li>
+      <strong>Diseño de PCB</strong>
+      <ul>
+        <li>Se ruteó la tarjeta cuidando líneas críticas y zonas de potencia.</li>
+        <li>Se generaron Gerbers y se verificó su integridad.</li>
+        <li>Se hizo vista previa 3D para revisar ensamblaje.</li>
+        <img src="imagenes/proyecto/pcb_final.jpg">
+      </ul>
+    </li>
+
+    <li>
+      <strong>Fabricación del chasis</strong>
+      <ul>
+        <li>Se cortaron piezas de acrílico o MDF en la xTool.</li>
+        <li>Se realizaron pruebas de ajuste para evitar holguras.</li>
+        <li>Se montaron soportes electrónicos y refuerzos.</li>
+        <img src="imagenes/proyecto/corte_xtool.jpg">
+      </ul>
+    </li>
+
+    <li>
+      <strong>Integración y pruebas</strong>
+      <ul>
+        <li>Se soldaron los componentes en la PCB.</li>
+        <li>Se ensambló la tarjeta dentro del chasis.</li>
+        <li>Se realizaron pruebas funcionales, de comunicación y alimentación.</li>
+        <img src="imagenes/proyecto/ensamble.jpg">
+      </ul>
+    </li>
+  </ol>
+
+  <h3>Video demostrativo</h3>
+  <p>
+    Inserta un video mostrando el funcionamiento final del dispositivo, de preferencia en formato MP4 dentro de la carpeta <em>videos/proyecto/</em>.  
+    <br>
+    <em>Sugerencia de archivo:</em> “videos/proyecto/demostracion_final.mp4”
+  </p>
+</section>
+
+    
  <section id="equipo">
       <h2> Equipo </h2>
                 </div>
@@ -604,6 +885,7 @@
     </footer>
 </body>
 </html>
+
 
 
 
