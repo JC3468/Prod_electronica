@@ -699,11 +699,11 @@
         <li>Crear un proyecto nuevo: File » New » Project → selecciona PCB Project y ponle nombre. Esto crea la estructura de proyecto (archivo .PrjPcb).</li>
         <li>Dentro del proyecto, añade documentos: clic derecho en el proyecto (Project panel) → Add New to Project → Schematic para añadir un documento esquemático (.SchDoc) y PCB para añadir un documento de PCB (.PcbDoc).</li>
         <p><strong>Consejo:</strong> ve al Project Panel (normalmente a la izquierda) para ver y abrir los archivos del proyecto.</p>
-        <img src="imagenes/Altium/schematic_editor.jpg">
+        <img src="imagenes/equipo/newFile_altium.png">
+         <img src="imagenes/equipo/add_schematic_altium.png">
       </ul>
       <ul>
         <li><em>Archivo sugerido:</em> “archivos/altium/esquematico_principal.PrjPcb”.</li>
-        <li><em>Sugerencia de imagen:</em> “imagenes/Altium/schematic_closeup.jpg”.</li>
       </ul>
     </li>
 
@@ -713,12 +713,15 @@
       <ul>
         <li>Abre un archivo <code>.SchDoc</code> (doble clic en Project Panel).</li>
       <li>Añadir componentes: <code>Place &raquo; Part</code> o panel <strong>Components</strong>.</li>
+          <img src="imagenes/equipo/componentes_altium.png">
       <li>Cablear: <code>Place &raquo; Wire</code>. Para nombrar nets: <code>Place &raquo; Net Label</code>.</li>
+          <img src="imagenes/equipo/Placewire_altium.png">
       <li>Power ports y buses: <code>Place &raquo; Power Port</code>, <code>Place &raquo; Bus</code>.</li>
+          <img src="imagenes/equipo/placeGND_altium.png">
       <li>Vincular esquemático con PCB: <code>Design &raquo; Update PCB Document &lt;project&gt;.PcbDoc</code> (síncroniza netlist y componentes con la PCB).</li>
     </ul>
     <div class=".tip">Tip: compila el proyecto (<code>Project &raquo; Compile</code>) para atrapar errores lógicos antes de actualizar la PCB.</div>
- <img src="imagenes/Altium/librerias.jpg">
+ 
       </ul>
 
     <!-- 3 Ruteado -->
@@ -733,9 +736,9 @@
         </ul>
       </li>
       <li>Crear librería esquemática: <code>File &raquo; New &raquo; Library &raquo; Schematic Library</code>. Para PCB: <code>File &raquo; New &raquo; Library &raquo; PCB Library</code>.</li>
-      <li>Gestionar componentes: paneles <strong>Libraries</strong> y <strong>Components</strong>; en las propiedades del componente puedes enlazar la huella, modelo 3D y modelos de simulación.</li>
+      <img src="imagenes/equipo/newlibrary_altium.png">
+     <li>Gestionar componentes: paneles <strong>Libraries</strong> y <strong>Components</strong>; en las propiedades del componente puedes enlazar la huella, modelo 3D y modelos de simulación.</li>
     </ul>
-        <img src="imagenes/Altium/ruteo.jpg">
       </ul>
     </li>
 
@@ -745,9 +748,9 @@
       <ul>
         <li>Abre el documento <code>.PcbDoc</code>.</li>
       <li>Herramienta principal: <strong>Interactive Routing</strong> — <code>Route &raquo; Interactive Routing</code> o mediante atajo (según perfil del usuario).</li>
-      <li>Modos avanzados: <em>Push-and-Shove</em>, <em>Hug</em>, <em>Walk-around</em>, y <em>Interactive Length Tuning</em> (útil para señales de alta velocidad).</li>
+      <img src="imagenes/equipo/interactiverouting_altium.png">
+        <li>Modos avanzados: <em>Push-and-Shove</em>, <em>Hug</em>, <em>Walk-around</em>, y <em>Interactive Length Tuning</em> (útil para señales de alta velocidad).</li>
       <li>Presiona <code>Tab</code> mientras ruteas para editar propiedades de la pista (anchura, capa, restricciones).</li>
-        <img src="imagenes/Altium/pcb3d.jpg">
       </ul>
     </li>
 
@@ -757,8 +760,8 @@
       <ul>
        <li>En el esquemático: <code>Place &raquo; Net Label</code> para nombrar nets y permitir conexiones lógicas entre hojas.</li>
       <li>Usa <code>Place &raquo; Port</code> y <code>Place &raquo; Sheet Entry</code> para conexiones entre múltiples hojas.</li>
-      <li>En PCB: visualiza y filtra nets en los paneles <strong>PCB Panel</strong> y <strong>PCB Inspector</strong>.</li>
-        <img src="imagenes/Altium/gerbers.jpg">
+       <img src="imagenes/equipo/placenet_altium.png">
+          <li>En PCB: visualiza y filtra nets en los paneles <strong>PCB Panel</strong> y <strong>PCB Inspector</strong>.</li>
       </ul>
 
     <!-- 6 Simulación -->
@@ -768,9 +771,9 @@
          <li>Abre <code>.PcbDoc</code>. Usa la rueda del ratón para zoom; botón derecho abre el menú contextual.</li>
       <li>Panels importantes: <strong>PCB</strong> (visibilidad de capas), <strong>PCB Rules and Violations</strong>, <strong>PCB Inspector</strong>, <strong>Components</strong>.</li>
       <li>Editar stack-up: <code>Design &raquo; Layer Stack Manager</code> para definir capas, grosores y dielectricos.</li>
-    </ul>
+    <img src="imagenes/equipo/layerstack_altium.png">
+      </ul>
     <div class="note">Nota: configura el <em>Layer Stack</em> antes del ruteado final — muchas reglas y cálculos (impedancia) dependen del stackup.</div>
-        <img src="imagenes/Altium/simulacion.jpg">
       </ul>
     </li>
 
@@ -781,7 +784,7 @@
        <li>Generar Gerber / NC Drill / ODB++: <code>File &raquo; Fabrication Outputs &raquo; Gerber Files</code>, <code>NC Drill Files</code> o <code>ODB++ Files</code>.</li>
       <li>Usa un <strong>Output Job (.OutJob)</strong> para agrupar y versionar todas las salidas (Gerber, NC Drill, pick-and-place, BOM, drawings).</li>
       <li>Archivos típicos que pide el fabricante: Gerbers (o Gerber X2), NC Drill (Excellon), archivo de stackup, y drawing de ensamblado si aplica.</li>
-        <img src="imagenes/Altium/drc.jpg">
+       <img src="imagenes/equipo/fabricationfiles_altium.png">
       </ul>
     </li>
 
@@ -793,14 +796,14 @@
       <li>Panel de simulación: <strong>Simulation Dashboard</strong> (Panels &raquo; Simulation). Configura análisis (DC, AC, Transient) y puntos de sondeo; ejecuta con <code>Simulate &raquo; Run Simulation</code>.</li>
     </ul>
     <div class=".tip">Tip: valida la netlist y modelos antes de correr simulación para evitar errores de asociación de modelos.</div>
-   <img src="imagenes/Altium/simulacion.jpg">
       </ul>
     </li>
       <li>
       <strong>Verificación DRC y manejo de reglas</strong>
       <ul>
           <li>Accede a las reglas: <code>Design &raquo; Rules</code> → se abre el <strong>PCB Rules and Constraints Editor</strong>.</li>
-      <li>Tipos de reglas comunes: Clearance, Width, Plane, Via, Component Placement, Electrical, etc.</li>
+       <img src="imagenes/equipo/DRC_altium.png">
+          <li>Tipos de reglas comunes: Clearance, Width, Plane, Via, Component Placement, Electrical, etc.</li>
       <li>Ejecutar DRC:
         <ul>
           <li><strong>Online DRC</strong>: comprobaciones en tiempo real (si está habilitado).</li>
@@ -808,7 +811,6 @@
         </ul>
       </li>
       <li>Resolver violaciones: navega desde el panel de violaciones a los objetos afectados y corrige moviendo objetos o editando reglas.</li>
-    <img src="imagenes/Altium/simulacion.jpg">
       </ul>
     </li>
       <li>
@@ -821,7 +823,6 @@
       <li>Definir reglas y stackup → ruteado (Interactive Routing) con Online DRC activo.</li>
       <li>Simular el esquemático según necesidad (DC/AC/Transient).</li>
       <li>Generar outputs de fabricación y revisar Gerbers antes de enviar al fabricante.</li>
-     <img src="imagenes/Altium/simulacion.jpg">
       </ul>
     </li>
       <strong>Atajos, panels y dónde encontrarlos</strong>
@@ -830,7 +831,6 @@
       <li><strong>Components / Libraries:</strong> View &raquo; Panels &raquo; Components / Libraries.</li>
       <li><strong>Simulation Dashboard:</strong> Panels &raquo; Simulation.</li>
       <li><strong>PCB Rules And Violations:</strong> Panels &raquo; PCB Rules And Violations.</li>
-    <img src="imagenes/Altium/simulacion.jpg">
       </ul>
     </li>
       <strong>Recursos</strong>
@@ -843,7 +843,6 @@
           <li>Ejemplo práctico: proyecto simple (esquemático + PCB) con comandos exactos para ejecutar en tu Altium.</li>
         </ul>
       </li>
-    <img src="imagenes/Altium/simulacion.jpg">
       </ul>
     </li>
   </ol>
@@ -882,6 +881,8 @@
         <li>Se generaron Gerbers y se verificó su integridad.</li>
         <li>Se hizo vista previa 3D para revisar ensamblaje.</li>
         <img src="imagenes/MonoFab/ruteado.png">
+          <img src="imagenes/eqipo/vista3d_1.jpg">
+          <img src="imagenes/eqipo/vista3d_2.jpg">
       </ul>
     </li>
 
@@ -898,18 +899,17 @@
       <strong>Integración y pruebas</strong>
       <ul>
         <li>Se soldaron los componentes en la PCB.</li>
-        <li>Se ensambló la tarjeta dentro del chasis.</li>
+        <li>Se ensambló los componentes a la placa</li>
         <li>Se realizaron pruebas funcionales, de comunicación y alimentación.</li>
-        <img src="imagenes/proyecto/ensamble.jpg">
+        <img src="imagenes/eqipo/control_final.jpg">
       </ul>
     </li>
   </ol>
 
   <h3>Video demostrativo</h3>
-  <p>
-    Inserta un video mostrando el funcionamiento final del dispositivo, de preferencia en formato MP4 dentro de la carpeta <em>videos/proyecto/</em>.  
+  <p>Vídeo del funcionamiento del control ya soldado y funcionando <em>videos/proyecto/</em>.  
     <br>
-    <em>Sugerencia de archivo:</em> “videos/proyecto/demostracion_final.mp4”
+    <video src="imagenes/equipo/control_funcionando.mp4" autoplay muted loop width="200"></video>
   </p>
 </section>
 
@@ -961,6 +961,7 @@
     </footer>
 </body>
 </html>
+
 
 
 
